@@ -10,33 +10,32 @@ const CryptoContext = ({ children }) => {
   const [symbol, setSymbol] = useState("RM");
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
- 
-  const [user, setUser] = useState(null);
+   // const [user, setUser] = useState(null);
   const [alert, setAlert] = useState({
     open: false,
     message: "",
     type: "success",
   });
-  const [watchlist, setWatchlist] = useState([]);
+  // const [watchlist, setWatchlist] = useState([]);
 
   // postgress check watchlist
-  useEffect(() => {
-    if (user) {
-      const coinRef = doc(db, "watchlist", user?.uid);
-      let unsubscribe = onSnapshot(coinRef, (coin) => {
-        if (coin.exists()) {
-          console.log(coin.data().coins);
-          setWatchlist(coin.data().coins);
-        } else {
-          console.log("No Items in Watchlist");
-        }
-      });
+  // useEffect(() => {
+  //   if (user) {
+  //     const coinRef = doc(db, "watchlist", user?.uid);
+  //     let unsubscribe = onSnapshot(coinRef, (coin) => {
+  //       if (coin.exists()) {
+  //         console.log(coin.data().coins);
+  //         setWatchlist(coin.data().coins);
+  //       } else {
+  //         console.log("No Items in Watchlist");
+  //       }
+  //     });
 
-      return () => {
-        unsubscribe();
-      };
-    }
-  }, [user]);
+  //     return () => {
+  //       unsubscribe();
+  //     };
+  //   }
+  // }, [user]);
 
   // user page need modify to pstgres needs
 
@@ -73,9 +72,9 @@ const CryptoContext = ({ children }) => {
         fetchCoins,
         alert,
         setAlert,
-        user,
-        setUser,
-        watchlist,
+        // user,
+        // setUser,
+        // watchlist,
       }}
     >
       {children}

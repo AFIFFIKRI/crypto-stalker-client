@@ -5,8 +5,7 @@ import { CryptoState } from "../src/CryptoContext";
 import { SingleCoin } from "../src/config/api";
 import { createUseStyles } from "react-jss";
 import CoinInfo from "../components/CoinInfo";
-import { styled } from "@mui/material/styles";
-import { LinearProgress, createStyles } from "@material-ui/core";
+import { LinearProgress } from "@material-ui/core";
 import ReactHtmlParser from "react-html-parser";
 import { numberWithCommas } from "../components/banner/Carousel";
 import { Button } from "@mui/material";
@@ -37,7 +36,7 @@ const Coinpage = () => {
       })
       .then(function (response) {
         // handle success
-        console.info(response.data);
+        console.info(response.data.user);
         setUser(response.data.user);
         setWatchlist(response.data.user.watchlist);
         // setAdmin(response.data.user.isAdmin);
@@ -55,7 +54,7 @@ const Coinpage = () => {
   useEffect(() => {
     fetchCoins();
     fetchUserAccount();
-  }, [id, jwt]);
+  }, []);
 
   const useStyles = createUseStyles({
     container: {
@@ -119,7 +118,7 @@ const Coinpage = () => {
     // const coinRef = doc(db, "watchlist", user.uid);
     try {
       if (coin && user) {
-        const updatedWatchlist = [...watchlist, coin.id];
+        const updatedWatchlist = [...watchlist, coin?.id];
         await axios.post(
           `${HOST}/api/users/watchlist/add`,
           { watchlist: updatedWatchlist },
@@ -138,7 +137,7 @@ const Coinpage = () => {
 
       setAlert({
         open: true,
-        message: `${coin.name} Added to the Watchlist !`,
+        message: `${coin?.name} Added to the Watchlist !`,
         type: "success",
       });
     } catch (error) {
@@ -154,12 +153,10 @@ const Coinpage = () => {
     // const coinRef = doc(db, "watchlist", user.uid);
     try {
       if (coin && user) {
-        const updatedWatchlist = watchlist.filter(
-          (itemId) => itemId !== coin.id
-        );
+        const updatedWatchlist = watchlist.filter((itemId) => itemId !== coin?.id);
         await axios.post(
           `${HOST}/api/users/watchlist/remove`,
-          { watchlist: updatedWatchlist },
+          { watchlist: updatedWatchlist  },
           {
             headers: { Authorization: `Bearer ${jwt}` },
           }
@@ -175,7 +172,7 @@ const Coinpage = () => {
 
       setAlert({
         open: true,
-        message: `${coin.name} Removed from the Watchlist !`,
+        message: `${coin?.name} Removed from the Watchlist !`,
         type: "success",
       });
     } catch (error) {
@@ -273,7 +270,7 @@ const Coinpage = () => {
 
           {user && (
             <div>
-              {watchlist && watchlist.includes(coin.id) ? (
+              {watchlist && watchlist.includes(coin) ? (
                 <Button
                   variant="outlined"
                   style={{

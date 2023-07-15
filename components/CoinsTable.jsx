@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { CoinList } from "../src/config/api";
-import axios from "axios";
 import { CryptoState } from "../src/CryptoContext";
 import {
   createTheme,
@@ -44,8 +42,6 @@ const CoinsTable = () => {
   });
 
   const classes = useStyles();
-
-
 
   // console.log(coins);
 

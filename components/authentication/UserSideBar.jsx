@@ -12,6 +12,7 @@ import { HOST } from "../../src/config/api";
 
 const UserSideBar = () => {
   const jwt = Cookies.get("token");
+
   const [user, setUser] = useState(null);
   const { setAlert, watchlist, coins } = CryptoState();
 

@@ -1,7 +1,5 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import { Fade, AppBar, Tab, Tabs } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import { createUseStyles } from "react-jss";
@@ -9,8 +7,8 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 
 const AuthModal = () => {
-  const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState(0);
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(0);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 

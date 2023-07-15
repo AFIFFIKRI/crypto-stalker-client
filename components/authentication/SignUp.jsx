@@ -8,8 +8,6 @@ const SignUp = ({ handleClose }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-
-
   const { setAlert } = CryptoState();
 
   const handleSubmit = async (event) => {
@@ -19,17 +17,12 @@ const SignUp = ({ handleClose }) => {
     }
 
     // Send credentials to db
-    // need to modify
 
     try {
       event.preventDefault();
       const formObject = { email, username, password, confirmPassword };
       console.log({email, username, password, confirmPassword});
-      // const result = await createUserWithEmailAndPassword(
-      //   // auth,
-      //   email,
-      //   password
-      // );
+
       setAlert({
         open: true,
         message: `Sign Up Successful. Welcome `,

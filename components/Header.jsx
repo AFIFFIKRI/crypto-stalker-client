@@ -97,11 +97,7 @@ const Header = () => {
             <MenuItem value={"MYR"}>MYR</MenuItem>
           </Select>
 
-          {/* <AuthModal />
-
-          <UserSideBar /> */}
-
-          {user ? <UserSideBar /> : <AuthModal />}
+           {user ? <UserSideBar /> : <AuthModal />}
         </div>
       </div>
     </ThemeProvider>

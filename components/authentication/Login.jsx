@@ -4,7 +4,6 @@ import { Box, TextField, Button } from "@mui/material";
 import { CryptoState } from "../../src/CryptoContext";
 import axios from "axios";
 import { HOST } from "../../src/config/api";
-import useLocalStorage from "../../src/hook/useLocalStorage";
 import Cookies from "js-cookie";
 
 const Login = ({ handleClose }) => {
@@ -13,8 +12,7 @@ const Login = ({ handleClose }) => {
 
   const [jwt, setJwt] = useState("");
 
-  // const [jwt, setJwt] = useLocalStorage("token", "");
-  // const navigate = useNavigate();
+   // const navigate = useNavigate();
   // const handleSucesssNavigation = () => {
   //   navigate("/");
   // };
@@ -71,32 +69,6 @@ const Login = ({ handleClose }) => {
       })
       .finally(function () {});
 
-    // try {
-    //   const response = await axios.post(`${HOST}/api/login`, {
-    //     identifier,
-    //     password,
-    //   });
-
-    //   if (response && response.data) {
-    //     console.log(response.data);
-    //     const { jwt } = response.data.jwt;
-    //     Cookies.set("token", jwt);
-    //     setAlert({
-    //       open: true,
-    //       message: `Login Successful. Welcome ${identifier}`,
-    //       // ${result.user.email}`
-    //       type: "success",
-    //     });
-    //     handleClose();
-    //   }
-    // } catch (error) {
-    //   setAlert({
-    //     open: true,
-    //     message: "Invalid Credential",
-    //     type: "error",
-    //   });
-    //   return;
-    // }
   };
 
   return (

@@ -1,16 +1,9 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-  BrowserRouter,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from "../pages/Homepage";
 import Coinpage from "../pages/Coinpage";
 import Header from "../components/Header";
 import { createUseStyles } from "react-jss";
 import Alert from "../components/Alert";
-import AuthModal from "../components/authentication/AuthModal";
 
 const useStyles = createUseStyles({
   App: {
