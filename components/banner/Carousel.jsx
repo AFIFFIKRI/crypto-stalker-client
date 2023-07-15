@@ -6,6 +6,7 @@ import { TrendingCoins } from "../../src/config/api";
 import AliceCarousel from "react-alice-carousel";
 import { Link } from "react-router-dom";
 
+// syntax for put commas on numbers display
 export function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

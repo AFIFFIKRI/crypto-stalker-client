@@ -185,28 +185,6 @@ const Coinpage = () => {
   };
   console.log(coin);
 
-  // const fetchWatchlist = async () => {
-  //   // const coinRef = doc(db, "watchlist", user.uid);
-  //   try {
-  //     if (jwt) {
-  //       await axios.post(`${HOST}/api/users/watchlist`, {
-  //         watchlist: coin,
-  //       });
-  //       setWatchlist(response.data);
-  //     }
-  //   } catch (error) {
-  //     setAlert({
-  //       open: true,
-  //       message: error.message,
-  //       type: "error",
-  //     });
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchWatchlist();
-  // }, []);
-
   if (!coin) return <LinearProgress style={{ backgroundColor: "orangered" }} />;
 
   return (
@@ -254,19 +232,6 @@ const Coinpage = () => {
               M
             </h2>
           </span>
-
-          {/* once configure user db use this line */}
-          {/* {user && (
-            <Button
-              variant="outlined"
-              style={{ 
-                width: "100%",
-                height: 40,
-                backgroundColor: inWatchlist ? '#ff0000' : "#EEBC1D" 
-              }}
-              onClick={inWatchlist ? removeFromWatchlist : addToWatchList}
-            >{inWatchlist ? 'Remove from Watchlist' : 'Add to Watchlist'}</Button>
-          )} */}
 
           {user && (
             <div>

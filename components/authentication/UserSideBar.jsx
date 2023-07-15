@@ -12,7 +12,6 @@ import { HOST } from "../../src/config/api";
 
 const UserSideBar = () => {
   const jwt = Cookies.get("token");
-
   const [user, setUser] = useState(null);
   const { setAlert, watchlist, coins } = CryptoState();
 
@@ -20,6 +19,7 @@ const UserSideBar = () => {
     window.location.reload();
   };
 
+  // authentication to fetch user data and set jwt
   const fetchUserAccount = async () => {
     // get jwt from localStorage
     console.log(jwt);
@@ -192,6 +192,7 @@ const UserSideBar = () => {
                   // src={user.photoURL}
                   // alt={user.displayName || user.email}
                 />
+                
                 <span
                   style={{
                     width: "100%",
@@ -203,6 +204,7 @@ const UserSideBar = () => {
                 >
                   {user?.username || "no data"}
                 </span>
+
                 <span
                   style={{
                     width: "100%",
@@ -214,31 +216,14 @@ const UserSideBar = () => {
                 >
                   {user?.email || "no data"}
                 </span>
+
                 <div className={classes.watchlist}>
                   <span style={{ fontSize: 15, textShadow: "0 0 5px black" }}>
                     Watchlist
                   </span>
-
-                  {/* {coins.map((coin) => {
-                    if (watchlist.includes(coin.id))
-                      return (
-                        <div className={classes.coin}>
-                          <span>{coin.name}</span>
-                          <span style={{ display: "flex", gap: 8 }}>
-                            {symbol}{" "}
-                            {numberWithCommas(coin.current_price.toFixed(2))}
-                            <AiFillDelete
-                              style={{ cursor: "pointer" }}
-                              fontSize="16"
-                              onClick={() => removeFromWatchlist(coin)}
-                            />
-                          </span>
-                        </div>
-                      );
-                    else return <></>;
-                  })} */}
                 </div>
               </div>
+
               <Button
                 variant="contained"
                 className={classes.logout}

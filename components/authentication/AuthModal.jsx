@@ -6,6 +6,9 @@ import { createUseStyles } from "react-jss";
 import Login from "./Login";
 import SignUp from "./SignUp";
 
+
+// Creating modal for login and signup function
+
 const AuthModal = () => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(0);

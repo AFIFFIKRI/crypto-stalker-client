@@ -10,7 +10,7 @@ const CryptoContext = ({ children }) => {
   const [symbol, setSymbol] = useState("RM");
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
-   // const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   const [alert, setAlert] = useState({
     open: false,
     message: "",
@@ -18,34 +18,7 @@ const CryptoContext = ({ children }) => {
   });
   // const [watchlist, setWatchlist] = useState([]);
 
-  // postgress check watchlist
-  // useEffect(() => {
-  //   if (user) {
-  //     const coinRef = doc(db, "watchlist", user?.uid);
-  //     let unsubscribe = onSnapshot(coinRef, (coin) => {
-  //       if (coin.exists()) {
-  //         console.log(coin.data().coins);
-  //         setWatchlist(coin.data().coins);
-  //       } else {
-  //         console.log("No Items in Watchlist");
-  //       }
-  //     });
-
-  //     return () => {
-  //       unsubscribe();
-  //     };
-  //   }
-  // }, [user]);
-
-  // user page need modify to pstgres needs
-
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) setUser(user);
-  //     else setUser(null);
-  //   });
-  // }, []);
-
+  // set currency state
   const fetchCoins = async () => {
     setLoading(true);
     const { data } = await axios.get(CoinList(currency));

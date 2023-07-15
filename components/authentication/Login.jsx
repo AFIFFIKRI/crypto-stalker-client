@@ -9,19 +9,21 @@ import Cookies from "js-cookie";
 const Login = ({ handleClose }) => {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
-
   const [jwt, setJwt] = useState("");
 
-   // const navigate = useNavigate();
+  // const navigate = useNavigate();
   // const handleSucesssNavigation = () => {
   //   navigate("/");
   // };
+
+  //  refresh page after auth function
   const handleRefresh = () => {
     window.location.reload();
   };
 
-  const { setAlert, setLoading } = CryptoState();
+  const { setAlert } = CryptoState();
 
+  // login function by fetch data from db with cookies jwt
   const handleSubmit = async (event) => {
     if (!identifier || !password) {
       setAlert({
@@ -55,7 +57,6 @@ const Login = ({ handleClose }) => {
           type: "success",
         });
         handleClose();
-        // handleSucesssNavigation();
         handleRefresh();
       })
       .catch(function (error) {
@@ -68,7 +69,6 @@ const Login = ({ handleClose }) => {
         return;
       })
       .finally(function () {});
-
   };
 
   return (
